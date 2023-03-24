@@ -4,7 +4,6 @@ def addWidget(video_path, audio_path, audio_start_time):
     from moviepy.editor import VideoFileClip, AudioFileClip, ImageClip, CompositeVideoClip
     from PIL import Image
     import wand.image
-    import threading
 
     with wand.image.Image(filename='updated.svg') as img:
         img.format = 'png'
@@ -51,20 +50,7 @@ def addWidget(video_path, audio_path, audio_start_time):
     final_clip = (CompositeVideoClip([video_clip, clip2])).set_audio(audio_clip)
 
     # Write the final clip to a file
-    #final_clip.write_videofile("output.mp4")
-
-    def render_video():
-        final_clip.write_videofile("output.mp4")
-
-    # Start a new thread to render the video
-    thread = threading.Thread(target=render_video)
-    thread.start()
-
-    # Continue with the rest of the code here
-    # ...
-
-    # Wait for the video rendering to finish
-    thread.join()
+    final_clip.write_videofile("output.mp4")
 
     print("Audio and video combined successfully!")
 
