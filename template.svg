@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1084.78 364.69">
+  <defs>
+    <style>
+      .cls-1 {
+        opacity: .5;
+      }
+
+      .cls-2 {
+        stroke-width: 39px;
+      }
+
+      .cls-2, .cls-3 {
+        fill: #f2f2f2;
+        stroke: #f2f2f2;
+        stroke-linejoin: round;
+      }
+
+      .cls-3 {
+        stroke-width: 31px;
+      }
+
+      .cls-4 {
+        font-family: Calibri, Calibri;
+      }
+
+      .cls-4, .cls-5 {
+        font-size: 70px;
+      }
+
+      .cls-5 {
+        font-family: Calibri-Bold, Calibri;
+        font-weight: 700;
+      }
+    </style>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <rect class="cls-2" x="19.5" y="19.5" width="1045.78" height="325.69"/>
+    <text class="cls-5" transform="translate(383.59 146.44)"><tspan x="0" y="0">str1</tspan></text>
+    <text class="cls-4" transform="translate(383.91 257.67)"><tspan x="0" y="0">str2</tspan></text>
+    <image width="480" height="480" transform="translate(37.78 36.3) scale(.62)" xlink:href="thumbnail.jpg"/>
+    <rect class="cls-1" x="37.78" y="36.3" width="300" height="300"/>
+    <g>
+      <rect class="cls-3" x="188.28" y="116.8" width=".29" height="139" transform="translate(376.85 372.61) rotate(180)"/>
+      <rect class="cls-3" x="249.64" y="137.8" width=".64" height="94.38" transform="translate(499.92 369.98) rotate(180)"/>
+      <rect class="cls-3" x="126.21" y="139.43" width=".64" height="94.38" transform="translate(253.06 373.23) rotate(180)"/>
+    </g>
+  </g>
+</svg>
