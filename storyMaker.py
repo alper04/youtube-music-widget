@@ -1,9 +1,12 @@
+from moviepy.editor import VideoFileClip, AudioFileClip, ImageClip, CompositeVideoClip
+from PIL import Image
+import wand.image
+import requests
+from io import BytesIO
+from pytube import YouTube
+import re
 
 def addWidget(video_path, audio_path, audio_start_time):
-
-    from moviepy.editor import VideoFileClip, AudioFileClip, ImageClip, CompositeVideoClip
-    from PIL import Image
-    import wand.image
 
     with wand.image.Image(filename='updated.svg') as img:
         img.format = 'png'
@@ -62,11 +65,6 @@ def addWidget(video_path, audio_path, audio_start_time):
 
 def download_song(url):
 
-    import requests
-    from io import BytesIO
-    from pytube import YouTube
-    from PIL import Image
-    import re
 
     # Create a Pytube YouTube object with the music video URL
     yt = YouTube(url)
