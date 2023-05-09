@@ -2,7 +2,7 @@
 <h1 style="text-align:center;">YouTube Music Widget</h1>
 
 <img src="Capture.PNG" alt="Image" width="600">
-
+Note: The Windows GUI and CLI should be used instead, but the code for the GUI is still included for use at your own disposal.
 
 <h4>Description:</h4>
 <p> YouTube Music Widget is a simple web application that allows you to add music from YouTube to any local video you upload. With this app, you can easily create customized videos for your Instagram stories or any other platform that requires background music.</p>
