@@ -8,7 +8,7 @@
 <p> YouTube Music Widget is a simple web application that allows you to add music from YouTube to any local video you upload. With this app, you can easily create customized videos for your Instagram stories or any other platform that requires background music.</p>
 
 <h4>Use cases:</h4>
-<p> I live in a region where I don't have access to Instagram music, and I wanted a way to add music to my stories. This app lets me easily add any music from YouTube to my videos without any hassle. Another use case might be to add sounds from YouTube that you can't normally find on Instagram.</p>
+<p> Instagram Music is restricted in some regions (due to copyright or whatever reasons), and I wanted a way to add music to my stories. This app lets me easily add any music from YouTube to videos without any hassle. Another use case might be to add sounds from YouTube that you can't normally find on Instagram.</p>
 
 <h3>Instructions:</h3>
 
