@@ -5,16 +5,28 @@ import requests
 from io import BytesIO
 from pytube import YouTube
 import re
+import os
 
-def addWidget(video_path, audio_path, audio_start_time):
 
+
+def addWidget(video_path, audio_start_time):
+    
     with wand.image.Image(filename='updated.svg') as img:
         img.format = 'png'
         img.save(filename='image.png')
+    
 
-    # Load the video and audio clip
-    video_clip = VideoFileClip(video_path)
-    audio_clip = AudioFileClip(audio_path)
+    # Load the video or image clip
+    extension = os.path.splitext(video_path)[1]
+    
+    if extension in ['.mp4', '.avi', '.mov', '.mkv']:
+        video_clip = VideoFileClip(video_path)
+    elif extension in ['.jpg', '.jpeg', '.png', '.bmp']:
+        video_clip = ImageClip(video_path, duration=15)
+    else:
+        raise ValueError("Unsupported file format")
+
+    audio_clip = AudioFileClip("song.mp3")
 
    
 
@@ -44,10 +56,7 @@ def addWidget(video_path, audio_path, audio_start_time):
     clip2 = ImageClip("output_image.png", duration = video_clip.end)
     
      # Extract the desired portion of the audio clip
-    audio_clip = audio_clip.subclip(audio_start_time, audio_start_time + video_clip.end)
-
-    # Set the audio of the video clip to the extracted audio clip
-    #final_clip2 = final_clip.set_audio(audio_clip)
+    audio_clip = audio_clip.subclip(audio_start_time, (audio_start_time + video_clip.end) if (audio_clip.end > video_clip.end) else audio_clip.end)
     
     # creating a composite video
     final_clip = (CompositeVideoClip([video_clip, clip2])).set_audio(audio_clip)
@@ -59,11 +68,7 @@ def addWidget(video_path, audio_path, audio_start_time):
 
 
 
-
-
-
-
-def download_song(url):
+def download_song(url, manualMode, mTitle, mArtist):
 
 
     # Create a Pytube YouTube object with the music video URL
@@ -109,26 +114,36 @@ def download_song(url):
 
     print("Thumbnail downloaded and cropped successfully!")
 
-
-    # Get the video title and artist name
-    title = yt.title.replace(yt.author, "")
-    title = re.sub(r"[^\w\s]", "", title)
-
-    video_title = title[:17] + "..." if len(title) > 17 else title 
-    artist_name = yt.author[:17] + "..." if len(yt.author) > 17 else yt.author
-
-    # Print the formatted video title and artist name
-    print(f"{video_title} - {artist_name}")
-
     with open('template.svg', 'r') as f:
         svg_str = f.read()
 
-    svg_str = svg_str.replace('str1', video_title).replace('str2', artist_name)
+    if manualMode == True:
+
+        svg_str = svg_str.replace('str1', mTitle).replace('str2', mArtist)
+    
+    else:
+        # Get the video title and artist name
+        title = yt.title.replace(yt.author, "")
+        title = re.sub(r"[^\w\s]", "", title)
+
+        video_title = title[:17] + "..." if len(title) > 17 else title 
+        artist_name = yt.author[:17] + "..." if len(yt.author) > 17 else yt.author
+
+        # Print the formatted video title and artist name
+        print(f"{video_title} - {artist_name}")
+
+        svg_str = svg_str.replace('str1', video_title).replace('str2', artist_name)
 
     with open('updated.svg', 'w') as f:
         f.write(svg_str)
 
 
 
+
+
+
+#download_song("https://www.youtube.com/watch?v=KLRRmTpBH5I",)
+
+#addWidget(r"C:\Users\Alper\Desktop\storyMaker\video.mp4", r"C:\Users\Alper\Desktop\storyMaker\song.mp3", 40)
 
 
