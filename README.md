@@ -10,16 +10,63 @@
 <h4>Use cases:</h4>
 <p> Instagram Music is restricted in some regions (due to copyright or whatever reasons), and I wanted a way to add music to my stories. This app lets me easily add any music from YouTube to videos without any hassle. Another use case might be to add sounds from YouTube that you can't normally find on Instagram.</p>
 
-<h3>Instructions:</h3>
 
-The project uses the pytube, moviepy, wand and pillow modules, these need to be installed using first using pip to run the source code.
+## Command Line Interface Usage:
 
-<ol>
-  <li>Enter the YouTube URL of the song you want to use.</li>
-  <li>Select which part of the song you want to use.</li>
-  <li>Upload your local video.</li>
-  <li>Adjust the music and video to your liking.</li>
-  <li>Final video processed, share it on any platform.</li>
-</ol>
+This is a command line interface for Story Maker which can be used to download a song from a YouTube URL and add a widget to a video. Here are the instructions for using the CLI:
+
+### Download Command
+
+This command allows you to download a song from a YouTube URL.
+
+```
+python sm_cli.py download <url> [--manual-mode] [--title <title>] [--artist <artist>]
+```
+
+#### Arguments
+
+- `url`: The YouTube URL of the song to download
+- `--manual-mode`: Use manual mode to enter the song title and artist
+- `--title`: The title of the song (only used if `--manual-mode` is set)
+- `--artist`: The artist of the song (only used if `--manual-mode` is set)
+
+#### Example
+
+```
+python sm_cli.py download https://www.youtube.com/watch?v=dQw4w9WgXcQ --manual-mode --title "Never Gonna Give You Up" --artist "Rick Astley"
+```
+
+### Widget Command
+
+This command allows you to add a widget to a video.
+
+```
+python sm_cli.py widget <video_path> <audio_start_time>
+```
+
+#### Arguments
+
+- `video_path`: The path to the video file
+- `audio_start_time`: The start time of the audio to add, in seconds
+
+#### Example
+
+```
+python sm_cli.py widget my_video.mp4 30
+```
+
+### Man Command
+
+This command displays the manual page.
+
+```
+python sm_cli.py man
+```
+
+If no command is provided, the manual page will be displayed.
+
+#### Easter Egg
+
+Ask the CLI for a `man` after midnight.
 
 <p>Thank you for using YouTube Music Widget! If you have any feedback or suggestions, please feel free to contact me.</p>
