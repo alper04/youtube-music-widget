@@ -64,8 +64,5 @@ python sm_cli.py man
 
 If no command is provided, the manual page will be displayed.
 
-#### Easter Egg
-
-Ask the CLI for a `man` after midnight.
 
 <p>Thank you for using YouTube Music Widget! If you have any feedback or suggestions, please feel free to contact me.</p>
